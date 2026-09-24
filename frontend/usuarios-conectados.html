@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usuarios Conectados — Sistema de Licenciamiento</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body class="pantalla-ancha" data-modulo="usuarios-conectados">
+  <div class="app-shell">
+    <nav class="barra-lateral" id="barra-lateral"></nav>
+
+    <main class="contenido">
+      <div class="encabezado-pagina">
+        <div>
+          <h1>Usuarios Conectados</h1>
+          <p>Quién ha tenido actividad en el sistema en los últimos 5 minutos, en cualquier compañía. Se actualiza sola cada 20 segundos.</p>
+        </div>
+      </div>
+
+      <div id="caja-mensaje" class="mensaje"></div>
+
+      <section class="panel">
+        <table>
+          <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Compañía</th><th>Última actividad</th></tr></thead>
+          <tbody id="tabla-conectados"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utilidades.js"></script>
+  <script src="js/navegacion.js"></script>
+  <script src="js/usuarios-conectados.js"></script>
+</body>
+</html>

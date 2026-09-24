@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consola de Licencias — Sistema de Licenciamiento</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    .fila-vencida { background: #fdecea; }
+    .fila-por-vencer { background: #fff8e6; }
+    .badge-dias { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .badge-dias.vencido { background: #fdecea; color: #b42318; }
+    .badge-dias.urgente { background: #fff3cd; color: #8a6100; }
+    .badge-dias.normal { color: var(--texto-suave); }
+  </style>
+</head>
+<body class="pantalla-ancha" data-modulo="licencias">
+  <div class="app-shell">
+    <nav class="barra-lateral" id="barra-lateral"></nav>
+
+    <main class="contenido">
+      <div class="encabezado-pagina">
+        <div>
+          <h1>Consola de Licencias</h1>
+          <p>Estado de licencia de todas las compañías del sistema, de más urgente a menos. Para cambios de fondo (convertir un demo a normal, subir el límite), edítalo aquí mismo y guarda.</p>
+        </div>
+      </div>
+
+      <div id="caja-mensaje" class="mensaje"></div>
+
+      <section class="panel">
+        <table>
+          <thead>
+            <tr>
+              <th>Compañía</th><th>Tipo</th><th>Usuarios</th><th>Límite</th><th>Disponibles</th><th>Vence</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="tabla-licencias"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal de edición rápida -->
+  <div id="modal-licencia" style="display: none; position: fixed; inset: 0; background: rgba(22,35,61,0.6); z-index: 900; overflow-y: auto; padding: 32px 16px;">
+    <div style="background: var(--papel-panel); border-radius: var(--radio); max-width: 480px; margin: 0 auto; padding: 24px; position: relative;">
+      <button type="button" id="boton-cerrar-modal-licencia" style="position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--texto-suave);">✕</button>
+      <h2 id="modal-licencia-titulo">Editar licencia</h2>
+      <form id="form-licencia">
+        <input type="hidden" id="licencia-compania-id" />
+        <div class="formulario-grid">
+          <div class="campo">
+            <label for="licencia-tipo">Tipo de licencia</label>
+            <select id="licencia-tipo">
+              <option value="normal">Normal</option>
+              <option value="demo">Demo</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="licencia-limite">Límite de usuarios activos</label>
+            <input type="number" id="licencia-limite" min="0" placeholder="Vacío = sin límite" />
+          </div>
+          <div class="campo" id="campo-licencia-vencimiento" style="display:none;">
+            <label for="licencia-vencimiento">El demo vence el</label>
+            <input type="date" id="licencia-vencimiento" />
+          </div>
+        </div>
+        <div class="acciones-formulario">
+          <button type="submit" class="boton boton-primario">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utilidades.js"></script>
+  <script src="js/navegacion.js"></script>
+  <script src="js/licencias.js"></script>
+</body>
+</html>
