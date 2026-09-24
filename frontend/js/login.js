@@ -21,7 +21,7 @@ document.getElementById('form-login').addEventListener('submit', async (evento) 
     }
 
     guardarSesion(datos.token, datos.usuario);
-    window.location.href = 'licencias.html';
+    window.location.href = 'inicio.html';
   } catch (err) {
     mostrarMensaje('No se pudo conectar con el servidor. ¿Está corriendo "npm run dev"?', 'error');
   }

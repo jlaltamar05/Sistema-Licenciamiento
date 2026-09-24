@@ -3,6 +3,7 @@
 // solo dos pantallas.
 
 const MODULOS_NAV = [
+  { id: 'inicio', nombre: '🏠 Inicio', href: 'inicio.html' },
   { id: 'licencias', nombre: 'Consola de Licencias', href: 'licencias.html' },
   { id: 'usuarios-conectados', nombre: 'Usuarios Conectados', href: 'usuarios-conectados.html' },
 ];
